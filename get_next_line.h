@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 21:51:46 by psitkin           #+#    #+#             */
-/*   Updated: 2023/12/29 22:06:51 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/04 21:56:23 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1024
+# define BUFFER_SIZE 1
 # endif
 
-#include <stdib.h>
+#include <stdlib.h>
 #include <unistd.h>
+
+
 
 #endif
