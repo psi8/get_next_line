@@ -21,6 +21,8 @@ int	main()
 	printf("%s", next_line);	
 	next_line = get_next_line(fd);
 	printf("%s", next_line);
+	next_line = get_next_line(fd);
+	printf("%s", next_line);
 	if (close(fd) == -1)
 	{
 		printf("close() error\n");

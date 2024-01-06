@@ -6,18 +6,18 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/04 22:11:28 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/06 21:23:49 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "stdio.h"
 
-char	*ft_lstrdup(const char *src, int l); 
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize);
+//char	*ft_lstrdup(char *src, int l); 
+char	*ft_strjoin(char *s1, char *s2);
+void	*ft_memmove(void *dst, void *src, size_t len);
+size_t	ft_strlen(char *s);
+size_t	ft_strlcpy(char *dest, char *src, size_t dstsize);
 
 char	*get_next_line(int fd)
 {
@@ -44,11 +44,9 @@ char	*get_next_line(int fd)
 				output = ft_strjoin(output, cup_buffer);
 				return (output);
 			}
+			
 		}
-		if (output == 0)
-			output = ft_lstrdup(cup_buffer, BUFFER_SIZE + 1);
-		else 
-			output = ft_strjoin(output, cup_buffer);
+		output = ft_strjoin(output, cup_buffer);
 	}
 	return (output);
 }

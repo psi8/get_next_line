@@ -6,14 +6,14 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:09:38 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/04 21:37:11 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/06 21:18:17 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 
@@ -23,7 +23,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dest, char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	src_len;
@@ -47,7 +47,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 
 
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
 	char	*temp;
 
@@ -67,35 +67,38 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		s1_len;
 	int		s2_len;
 	char	*joinstr;
 
-	if (s1 == 0 || s2 == 0)
+	if (s1 == 0)
+		s1 = malloc(1);
+		s1[0] = '\0';
+	if (s2 == 0)
 		return (0);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	joinstr = malloc(s1_len + s2_len + 1);
 	if (!joinstr)
 		return (0);
-	ft_memmove(joinstr, s1, s1_len);
-	ft_memmove(joinstr + s1_len, s2, s2_len);
+	ft_strlcpy(joinstr, s1, s1_len);
+	ft_strlcpy(joinstr + s1_len, s2, s2_len);
 	joinstr[s1_len + s2_len] = 0;
 	return (joinstr);
 }
 
-char	*ft_lstrdup(const char *src, int l)
-{
-	char	*dst;
+// char	*ft_lstrdup(char *src, int l)
+// {
+// 	char	*dst;
 
-	dst = malloc(l);
-	if (!dst)
-		return ((char *) 0);
-	ft_strlcpy(dst, src, l);
-	return (dst);
-}
+// 	dst = malloc(l);
+// 	if (!dst)
+// 		return ((char *) 0);
+// 	ft_strlcpy(dst, src, l);
+// 	return (dst);
+// }
 
 
 
