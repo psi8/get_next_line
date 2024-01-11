@@ -11,7 +11,7 @@ int	main()
 	int		count;
 
 	count = 0;
-	fd = open("testing/test", O_RDONLY);
+	fd = open("test.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("open() error\n");
