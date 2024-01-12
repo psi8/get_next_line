@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:09:38 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/12 00:31:57 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/12 21:08:23 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,37 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	}
 	while (s1 && s1[s1_len])
-		joinstr[s1_len++] = s1[s1_len++];
+		{
+			joinstr[s1_len] = s1[s1_len];
+			s1_len++;
+		}
 	while (s2 && s2[s2_len])
 		joinstr[s1_len++] = s2[s2_len++];
 	joinstr[s1_len] = '\0';
 	free(s1);
 	return (joinstr);
 }
-// char	*ft_lstrdup(char *src, int l)
-// {
-// 	char	*dst;
 
-// 	dst = malloc(l);
-// 	if (!dst)
-// 		return ((char *) 0);
-// 	ft_strlcpy(dst, src, l);
-// 	return (dst);
-// }
+char	*ft_strchr(const char *str, int c)
+{
+	while (*str != '\0')
+	{
+		if (*str == (char)c)
+			return ((char *)(str));
+		str++;
+	}
+	if (*str == (char)c)
+		return ((char *)(str));
+	return (NULL);
+}
+
+char	*ft_free(char **str)
+{
+	if (*str)
+	{
+		free(*str);
+		*str = NULL;
+	}
+	return (NULL);
+}
+

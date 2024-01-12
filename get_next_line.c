@@ -6,18 +6,13 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/06 21:23:49 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/12 21:18:44 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "stdio.h"
 
-//char	*ft_lstrdup(char *src, int l); 
-char	*ft_strjoin(char *s1, char *s2);
-void	*ft_memmove(void *dst, void *src, size_t len);
-size_t	ft_strlen(char *s);
-size_t	ft_strlcpy(char *dest, char *src, size_t dstsize);
 
 char	*get_next_line(int fd)
 {
@@ -26,6 +21,11 @@ char	*get_next_line(int fd)
 	char	*output;
 	int		i;
 
+	if (!output)
+	{
+		output = malloc(1);
+		output[0] = '\0';
+	}
 	bytes_read = 1;
 	cup_buffer = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (cup_buffer == NULL)
@@ -43,8 +43,7 @@ char	*get_next_line(int fd)
 			{
 				output = ft_strjoin(output, cup_buffer);
 				return (output);
-			}
-			
+			}			
 		}
 		output = ft_strjoin(output, cup_buffer);
 	}
