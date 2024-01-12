@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:09:38 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/12 21:08:23 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/12 22:59:00 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,17 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (joinstr);
 }
 
+char	*check_string(char *s)
+{
+	if (!s)
+	{
+		s = (char *)malloc(sizeof(char) * 1);
+		if (!s)
+			return (0);
+		*s = 0;
+	}
+	return (s);
+}
 char	*ft_strchr(const char *str, int c)
 {
 	while (*str != '\0')
