@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/13 00:22:59 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/13 01:12:40 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*get_next_line(int fd)
 	
 	if (cup_buffer == NULL)
 		return (ft_free(&cup_buffer));
+	line = find_line(cup_buffer);
+	
 		
 // 	while (bytes_read > 0)
 // 	{
@@ -48,13 +50,13 @@ char	*get_next_line(int fd)
 // 	return (output);
 // }
 
-char	*read_from_file(int fd, char *buffer)
+char	*read_from_file(int fd, char *cup_buffer)
 {
 	char	*tmp;
 	int		bytes;
 	
-	buffer = check_string(buffer);
-	if (!buffer)
+	cup_buffer = check_string(cup_buffer);
+	if (!cup_buffer)
 		return (0);
 	tmp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!tmp)
@@ -66,10 +68,38 @@ char	*read_from_file(int fd, char *buffer)
 		if (bytes == -1)
 			return (ft_free(&tmp));
 		tmp[bytes] = '\0';
-		buffer = ft_strjoin(cup_buffer, tmp);
+		cup_buffer = ft_strjoin(cup_buffer, tmp);
 		if (!cup_buffer)
 			return (ft_free(&cup_buffer));
 	}
 	free(tmp);
-	return (buffer);
+	return (cup_buffer);
+}
+
+char	*find_line(char *cup_buffer)
+{
+	int		i;
+	char	*line;
+
+	i = 0;
+	if (!cup_buffer)
+		return (NULL);
+	while (cup_buffer[i] && cup_buffer[i] != '\n')
+		i++;
+	if (cup_buffer == '\n')
+		line = (char *)malloc(sizeof(char) * (i + 2));
+	else
+		line = (char *)malloc(sizeof(char) * (i + 1));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (cup_buffer[i] && cup_buffer[i] != '\n')
+	{
+		line[i] = cup_buffer[i];
+		i++;
+	}
+	if (cup_buffer == 'n')
+		line[i++] = '\n';
+	line[i] = '\0';
+	return (line);
 }
