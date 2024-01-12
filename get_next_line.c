@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/13 01:12:40 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/13 01:25:58 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	*get_next_line(int fd)
 	
 	if (cup_buffer == NULL)
 		return (ft_free(&cup_buffer));
-	line = find_line(cup_buffer);
-	
+	output = find_line(cup_buffer);
+}	
 		
 // 	while (bytes_read > 0)
 // 	{
@@ -48,7 +48,7 @@ char	*get_next_line(int fd)
 // 		output = ft_strjoin(output, cup_buffer);
 // 	}
 // 	return (output);
-// }
+
 
 char	*read_from_file(int fd, char *cup_buffer)
 {
@@ -62,7 +62,7 @@ char	*read_from_file(int fd, char *cup_buffer)
 	if (!tmp)
 		return (ft_free(&cup_buffer));
 	bytes = 1;
-	while (!ft_strchr(cup_buffer, '\n')&& bytes != 0)
+	while (!ft_strchr(cup_buffer, '\n') && bytes != 0)
 	{
 		bytes = read(fd, tmp, BUFFER_SIZE);
 		if (bytes == -1)
@@ -86,7 +86,7 @@ char	*find_line(char *cup_buffer)
 		return (NULL);
 	while (cup_buffer[i] && cup_buffer[i] != '\n')
 		i++;
-	if (cup_buffer == '\n')
+	if (cup_buffer[i] == '\n')
 		line = (char *)malloc(sizeof(char) * (i + 2));
 	else
 		line = (char *)malloc(sizeof(char) * (i + 1));
@@ -98,7 +98,7 @@ char	*find_line(char *cup_buffer)
 		line[i] = cup_buffer[i];
 		i++;
 	}
-	if (cup_buffer == 'n')
+	if (cup_buffer[i] == 'n')
 		line[i++] = '\n';
 	line[i] = '\0';
 	return (line);
