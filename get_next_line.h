@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 21:51:46 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/13 01:24:59 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/13 01:41:55 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*ft_strchr(const char *str, int c);
 char	*check_string(char *s);
 char	*read_from_file(int fd, char *cup_buffer);
 char	*find_line(char *cup_buffer);
+char	*rest_of_file(char *cup_buffer);
 
 
 

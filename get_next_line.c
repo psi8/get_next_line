@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/13 01:25:58 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/13 01:41:32 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*get_next_line(int fd)
 	if (cup_buffer == NULL)
 		return (ft_free(&cup_buffer));
 	output = find_line(cup_buffer);
+	cup_buffer = rest_of_file(cup_buffer);
 }	
 		
 // 	while (bytes_read > 0)
@@ -102,4 +103,32 @@ char	*find_line(char *cup_buffer)
 		line[i++] = '\n';
 	line[i] = '\0';
 	return (line);
+}
+
+char	*rest_of_file(char *cup_buffer)
+{
+	int	i;
+	int	j;
+	char	*rest;
+	
+	i = 0;
+	if (!cup_buffer)
+		return (NULL);
+	while (cup_buffer[i] && cup_buffer[i] != '\n')
+		i++;
+	if (cup_buffer[i])
+	{
+		free(cup_buffer);
+		return (NULL);
+	}
+	rest = (char *)malloc(sizeof (char) * (ft_strlen(cup_buffer) - i + 1));
+	if (!rest)
+		return (ft_free(&cup_buffer));
+	i++;
+	j = 0;
+	while (cup_buffer[i])
+		rest[j++] = cup_buffer[i++];
+	rest[j] = '\0';
+	free (cup_buffer);
+	return (rest); 
 }
