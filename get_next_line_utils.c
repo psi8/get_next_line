@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:09:38 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/12 22:59:00 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/14 20:16:42 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,6 @@ size_t	ft_strlen(char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
-}
-
-size_t	ft_strlcpy(char *dest, char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	src_len;
-
-	i = 0;
-	src_len = ft_strlen(src);
-	if (dstsize > 0)
-	{
-		while (src[i] && i < (dstsize - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	while (src[src_len] != 0)
-		return (src_len);
-	return (src_len);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -59,10 +38,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	}
 	while (s1 && s1[s1_len])
-		{
-			joinstr[s1_len] = s1[s1_len];
-			s1_len++;
-		}
+	{
+		joinstr[s1_len] = s1[s1_len];
+		s1_len++;
+	}
 	while (s2 && s2[s2_len])
 		joinstr[s1_len++] = s2[s2_len++];
 	joinstr[s1_len] = '\0';
@@ -81,6 +60,7 @@ char	*check_string(char *s)
 	}
 	return (s);
 }
+
 char	*ft_strchr(const char *str, int c)
 {
 	while (*str != '\0')
@@ -89,7 +69,7 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)(str));
 		str++;
 	}
-	if (*str == (char)c)
+	if (*str == '\0' && (char)c == '\0')
 		return ((char *)(str));
 	return (NULL);
 }

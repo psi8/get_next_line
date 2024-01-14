@@ -6,13 +6,11 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/14 19:54:21 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/14 20:19:57 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "stdio.h"
-
 
 char	*get_next_line(int fd)
 {
@@ -20,41 +18,21 @@ char	*get_next_line(int fd)
 	char		*output;
 
 	cup_buffer = NULL;
-	
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
+		return (ft_free(&cup_buffer));
 	cup_buffer = read_from_file(fd, cup_buffer);
-	
 	if (cup_buffer == NULL)
 		return (ft_free(&cup_buffer));
 	output = find_line(cup_buffer);
 	cup_buffer = rest_of_file(cup_buffer);
 	return (output);
-}	
-		
-// 	while (bytes_read > 0)
-// 	{
-// 		bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-// 		if (bytes_read < 0)
-// 			return (NULL);
-// 		cup_buffer[BUFFER_SIZE] = '\0';
-// 		i = 0;
-// 		while (cup_buffer[i] != '\0')
-// 		{
-// 			if (cup_buffer[i++] == '\n')
-// 			{
-// 				output = ft_strjoin(output, cup_buffer);
-// 				return (output);
-// 			}			
-// 		}
-// 		output = ft_strjoin(output, cup_buffer);
-// 	}
-// 	return (output);
-
+}
 
 char	*read_from_file(int fd, char *cup_buffer)
 {
 	char	*tmp;
 	int		bytes;
-	
+
 	cup_buffer = check_string(cup_buffer);
 	if (!cup_buffer)
 		return (0);
@@ -106,10 +84,10 @@ char	*find_line(char *cup_buffer)
 
 char	*rest_of_file(char *cup_buffer)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*rest;
-	
+
 	i = 0;
 	if (!cup_buffer)
 		return (NULL);
@@ -129,5 +107,5 @@ char	*rest_of_file(char *cup_buffer)
 		rest[j++] = cup_buffer[i++];
 	rest[j] = '\0';
 	free (cup_buffer);
-	return (rest); 
+	return (rest);
 }

@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 21:51:46 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/14 19:58:17 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/14 20:08:14 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *s);
-size_t	ft_strlcpy(char *dest, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_free(char **str);
 char	*ft_strchr(const char *str, int c);
