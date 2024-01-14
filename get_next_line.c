@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/14 20:19:57 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/14 23:19:11 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0)
 		return (ft_free(&cup_buffer));
 	cup_buffer = read_from_file(fd, cup_buffer);
-	if (cup_buffer == NULL)
+	if (!cup_buffer)
 		return (ft_free(&cup_buffer));
 	output = find_line(cup_buffer);
 	cup_buffer = rest_of_file(cup_buffer);
+	if (!output || !cup_buffer)
+		ft_free (&cup_buffer);
 	return (output);
 }
 
