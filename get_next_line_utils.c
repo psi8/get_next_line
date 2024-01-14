@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:09:38 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/14 20:16:42 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/14 23:44:03 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	s1_len = 0;
 	s2_len = 0;
-	joinstr = malloc(sizeof (char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	joinstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!joinstr)
 	{
 		free(s1);
