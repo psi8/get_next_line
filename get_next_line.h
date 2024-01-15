@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 21:51:46 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/14 20:08:14 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/15 22:11:27 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	*ft_strjoin(char *s1, char *s2);
+char	*get_next_line(int fd);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_free(char **str);
 char	*ft_strchr(const char *str, int c);
-char	*check_string(char *s);
 char	*read_from_file(int fd, char *cup_buffer);
 char	*find_line(char *cup_buffer);
 char	*rest_of_file(char *cup_buffer);
-char	*get_next_line(int fd);
-
-
-
-
+char	*ft_free(char **str);
+char	*check_string(char *s);
 
 #endif
