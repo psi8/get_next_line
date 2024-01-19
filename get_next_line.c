@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:21:17 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/16 01:53:33 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/19 21:29:48 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,14 @@ char	*get_next_line(int fd)
 	static char	*cup_buffer;
 	char		*output;
 
-	
-	if ((fd < 0) || (BUFFER_SIZE <= 0))
+	if ((fd < 0) || (BUFFER_SIZE <= 0) || read(fd, 0, 0) < 0)
 		return (ft_free(&cup_buffer));
-	if (read(fd, 0, 0) < 0)
-		return (ft_free(&cup_buffer));
-	if (!cup_buffer)
-		cup_buffer = NULL;
 	cup_buffer = read_from_file(fd, cup_buffer);
 	if (!cup_buffer)
-		return (NULL);
+		return (ft_free(&cup_buffer));
 	output = find_line(cup_buffer);
-	if (!output)
-		return (NULL);
 	cup_buffer = rest_of_file(cup_buffer);
-	if (!cup_buffer)
+	if (!cup_buffer || !output)
 		ft_free (&cup_buffer);
 	return (output);
 }
@@ -40,10 +33,10 @@ char	*read_from_file(int fd, char *cup_buffer)
 {
 	char	*tmp;
 	int		bytes;
-	
+
 	cup_buffer = check_string(cup_buffer);
 	if (!cup_buffer)
-		return (NULL);
+		return (0);
 	tmp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!tmp)
 		return (ft_free(&cup_buffer));
@@ -52,19 +45,13 @@ char	*read_from_file(int fd, char *cup_buffer)
 	{
 		bytes = read(fd, tmp, BUFFER_SIZE);
 		if (bytes == -1)
-		{
-			ft_free(&tmp);
+			return (ft_free(&tmp));
+		tmp[bytes] = '\0';
+		cup_buffer = ft_strjoin(cup_buffer, tmp);
+		if (!cup_buffer)
 			return (ft_free(&cup_buffer));
-		}
-		if (bytes > 0)
-		{
-			tmp[bytes] = '\0';
-			cup_buffer = ft_strjoin(cup_buffer, tmp);
-			if (!cup_buffer)
-				return (ft_free(&cup_buffer));
-		}
 	}
-	free(tmp);
+	free (tmp);
 	return (cup_buffer);
 }
 
@@ -74,7 +61,7 @@ char	*find_line(char *cup_buffer)
 	char	*line;
 
 	i = 0;
-	if (!cup_buffer)
+	if (!cup_buffer[i])
 		return (NULL);
 	while (cup_buffer[i] && cup_buffer[i] != '\n')
 		i++;

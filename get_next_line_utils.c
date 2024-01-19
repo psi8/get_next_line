@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:09:38 by psitkin           #+#    #+#             */
-/*   Updated: 2024/01/16 01:18:36 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/01/19 21:27:57 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*check_string(char *s)
 		s = (char *)malloc(sizeof(char) * 1);
 		if (!s)
 			return (NULL);
-		s[0] = '\0';
+		*s = 0;
 	}
 	return (s);
 }
@@ -83,5 +83,3 @@ char	*ft_free(char **str)
 	}
 	return (NULL);
 }
-
-
