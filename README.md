@@ -13,4 +13,7 @@ To accommodate file reading in get_next_line(), include the option in your compi
 
 The project must be compilable with and without the -D BUFFER_SIZE flag, alongside the usual compilation flags. You have the liberty to choose a default buffer size, and for illustration, the example compiler call with a buffer size of 42 is as follows:
 
+```c
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 <files>.c
+```
+
