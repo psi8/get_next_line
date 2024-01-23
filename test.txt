@@ -1,0 +1,83 @@
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.
+
+Carry out AT LEAST the following tests to try to stress the error
+management.
+
+Pass an arbitrary file descriptor to the get_next_line function on which it is not possible to read, for example 42. The function must return NULL.
+Check the error returns for read and malloc. If there is an error, the evaluation stops here. You can keep going and discuss the implementation of the code, but the assignment will not be graded.

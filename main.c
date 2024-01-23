@@ -11,7 +11,7 @@ int	main()
 	int		count;
 
 	count = 0;
-	fd = open("test.txt", O_RDONLY);
+	fd = open("test2.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("open() error\n");
@@ -19,10 +19,12 @@ int	main()
 	}
 	next_line = get_next_line(fd);
 	printf("%s", next_line);	
-	// next_line = get_next_line(fd);
-	// printf("%s", next_line);
-	// next_line = get_next_line(fd);
-	// printf("%s", next_line);
+	while (next_line)
+		{
+			next_line = get_next_line(fd);
+			if (next_line)
+				printf("%s", next_line);
+		}
 	if (close(fd) == -1)
 	{
 		printf("close() error\n");
